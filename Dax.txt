@@ -12,3 +12,8 @@ CALCULATE(
 	SUM('FactFinance'[Amount]),
 	ALL(DimOrganization[OrganizationName]
 ))
+
+Percent of Total = 
+var OrgTotal = SUMX(ALL(DimOrganization[OrganizationName]), CALCULATE(sum(FactFinance[Amount])))
+return
+DIVIDE(SUM(FactFinance[Amount]),OrgTotal)
