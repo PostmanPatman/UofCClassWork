@@ -17,3 +17,5 @@ Percent of Total =
 var OrgTotal = SUMX(ALL(DimOrganization[OrganizationName]), CALCULATE(sum(FactFinance[Amount])))
 return
 DIVIDE(SUM(FactFinance[Amount]),OrgTotal)
+
+Path = PATH(DimAccount[AccountCodeAlternateKey],DimAccount[ParentAccountCodeAlternateKey])
