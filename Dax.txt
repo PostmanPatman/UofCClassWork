@@ -1,0 +1,7 @@
+Assignment 2 DAX
+
+
+total Sum of amount = sum(FactFinance[Amount])
+
+Amount for Actual = 
+CALCULATE(SUM('FactFinance'[Amount]), 'FactFinance'[ScenarioKey] IN { 1 })
