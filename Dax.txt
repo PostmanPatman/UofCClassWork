@@ -19,3 +19,9 @@ return
 DIVIDE(SUM(FactFinance[Amount]),OrgTotal)
 
 Path = PATH(DimAccount[AccountCodeAlternateKey],DimAccount[ParentAccountCodeAlternateKey])
+
+USD Amount = 
+SUMX(
+    CROSSJOIN(DimDate,DimCurrency)
+    , CALCULATE(SUM(FactFinance[Amount])*SUM(FactCurrencyRate[EndOfDayRate]))
+)
