@@ -5,3 +5,10 @@ total Sum of amount = sum(FactFinance[Amount])
 
 Amount for Actual = 
 CALCULATE(SUM('FactFinance'[Amount]), 'FactFinance'[ScenarioKey] IN { 1 })
+
+
+Total Amount for all Organizations = 
+CALCULATE(
+	SUM('FactFinance'[Amount]),
+	ALL(DimOrganization[OrganizationName]
+))
